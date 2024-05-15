@@ -1,0 +1,33 @@
+[project]
+name = "spot-sdk"
+version = "4.0.1"
+description = "Default template for PDM package"
+authors = [
+    {name = "Boston Dynamics"},
+]
+dependencies = [
+    "deprecated",
+    "grpcio",
+    "numpy",
+    "pillow",
+    "pyjwt",
+    "urllib3",
+    "bosdyn-api == 4.0.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-dir]
+"bosdyn" = "python/bosdyn-core/src/bosdyn"
+"bosdyn.client" = "python/bosdyn-client/src/bosdyn/client"
+"bosdyn.mission" = "python/bosdyn-mission/src/bosdyn/mission"
+"bosdyn.orbit" = "python/bosdyn-orbit/src/bosdyn/orbit"
+"bosdyn.choreography.client" = "python/bosdyn-choreography-client/src/bosdyn/choreography/client"
+
+[tool.pdm]
+distribution = true
