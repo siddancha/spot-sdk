@@ -126,7 +126,9 @@ class ImageClient(BaseClient):
             UnsetStatusError: An internal ImageService issue has happened
             ImageDataError: Problem with the image data. Only ImageSource is filled
         """
-        return self.get_image([build_image_request(source) for source in image_sources], **kwargs)
+        return self.get_image([
+            build_image_request(source, pixel_format=image_pb2.Image.PIXEL_FORMAT_RGB_U8) for source in image_sources],
+        **kwargs)
 
     def get_image_from_sources_async(self, image_sources, **kwargs):
         """Obtain images from sources using default parameters."""
